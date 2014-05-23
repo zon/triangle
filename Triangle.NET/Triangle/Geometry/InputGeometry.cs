@@ -8,6 +8,7 @@ namespace TriangleNet.Geometry
 {
     using System;
     using System.Collections.Generic;
+	using System.Linq;
     using TriangleNet.Data;
 
     /// <summary>
@@ -80,7 +81,7 @@ namespace TriangleNet.Geometry
         /// </summary>
         public IEnumerable<Point> Points
         {
-            get { return points; }
+            get { return points.Select(v => v as Point); }
         }
 
         /// <summary>

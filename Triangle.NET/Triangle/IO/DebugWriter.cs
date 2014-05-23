@@ -87,12 +87,16 @@ namespace TriangleNet.IO
         /// <summary>
         /// Write complete mesh to file.
         /// </summary>
-        public void Write(Mesh mesh, bool skip = false)
+        public void Write(Mesh mesh, bool skip)
         {
             this.WriteMesh(mesh, skip);
 
             this.triangles = mesh.Triangles.Count;
         }
+
+		public void Write(Mesh mesh) {
+			Write(mesh, false);
+		}
 
         /// <summary>
         /// Finish this session.

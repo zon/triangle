@@ -49,7 +49,7 @@ namespace TriangleNet
         /// <summary>
         /// Creates an instance of the Behavior class.
         /// </summary>
-        public Behavior(bool quality = false, double minAngle = 20.0)
+        public Behavior(bool quality, double minAngle)
         {
             if (quality)
             {
@@ -59,6 +59,8 @@ namespace TriangleNet
                 Update();
             }
         }
+
+		public Behavior() : this(false, 20.0) {}
 
         /// <summary>
         /// Update quality options dependencies.

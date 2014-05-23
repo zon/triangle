@@ -37,7 +37,7 @@ namespace TriangleNet.Tools
         /// A node of the tree will be split, if its level if less than the max depth parameter
         /// AND the number of triangles in the node is greater than the size bound.
         /// </remarks>
-        public QuadTree(Mesh mesh, int maxDepth = 10, int sizeBound = 10)
+        public QuadTree(Mesh mesh, int maxDepth, int sizeBound)
         {
             this.maxDepth = maxDepth;
             this.sizeBound = sizeBound;
@@ -49,6 +49,8 @@ namespace TriangleNet.Tools
             root = new QuadNode(mesh.Bounds, this, true);
             root.CreateSubRegion(++currentDepth);
         }
+
+		public QuadTree(Mesh mesh) : this(mesh, 10, 10) {}
 
         public ITriangle Query(double x, double y)
         {
